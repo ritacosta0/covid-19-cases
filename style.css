@@ -1,0 +1,16 @@
+h1 {
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+.dots {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .point {
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+  }
