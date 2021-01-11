@@ -3,6 +3,10 @@ body {
   text-align: center;
 }
 
+h1 {
+  margin-bottom: 50px;
+}
+
 .intro {
   font-weight: 700;
 }
@@ -63,7 +67,7 @@ body {
 
 .progress { 
   text-align: center;
-  top: 50%;
+  top: 60%;
   width: 75%;
   position: fixed;
   margin: 0.5rem auto;
