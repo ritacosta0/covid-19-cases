@@ -11,6 +11,7 @@ d3.csv(
     let position = [];
     let caseLast = 0;
     let diffDay = 0;
+    
     for (var i = 0; i < data.length; i++) {
       position = data.length - 2;
       casesBeforeLast = data[position].óbitos;
