@@ -4,16 +4,50 @@
 
 <head>
     <link rel="stylesheet" href="style.css"> </link>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@500&display=swap"></link>
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@500&display=swap"></link>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
 </head>
 
 <body>
-<h1>Casos confirmados de covid-19 em Portugal</h1>
+<h1>Um retrato da covid-19 em Portugal</h1>
+    <p class="intro"> Desde o início da pandemia já se registaram 
+        <span class="total-cases"> 0</span> casos de covid-19 em Portugal. 
+        <br> Esta visualização tem como objectivo ilustrar o número de pessoas afectadas pela doença. 
+    </p>
+    <p class="intro"> Um 
+        <span class="point point-in-paragraph gray"></span> 
+        representa um caso confirmado ou óbito desde o início da pandemia. 
+        <br> Os  
+        <span class="point point-in-paragraph red"></span>
+        <span class="point point-in-paragraph red"></span>
+        <span class="point point-in-paragraph red"></span> 
+        no final da página correspondem aos números reportados nas últimas 24 horas.
+    </p>
+    <p class="intro">Dados da Direcção-Geral da Saúde, diponibilizados no repositório da 
+        <a target="_blank" href="https://github.com/dssg-pt/covid19pt-data">Data Science for Social Good Portugal</a>
+    </p>
+<select id="selectButton"></select>
+<p class="warning">Nas selecções em que o número de casos é muito elevado, a página demora mais tempo a carregar.</p>
+<p class="note">Registaram-se 
+    <span class="up-or-down point-in-paragraph">mais</span> 
+    <span class="diff-from-last point-in-paragraph">0</span> 
+    <span class = "selected-first point-in-paragraph">óbitos</span> 
+    nas últimas 24 horas.
+</p>
 
-<div class="dots"></div>
+<button onclick="topFunction()" id="myBtn" ><i class="arrow up"></i></button>
+<!-- <figure class='stack'></figure> -->
+<div id="_progress"></div>
+<div class="dots step" data-step="218,165,32">
+    <p class="progress">0</p>
+</div>
 
-<script type="module" src="dots.js"></script>
+<script type="module" src="dots.js"> </script>
+<script type="module" src="stackedBar.js"> </script>
+<script src="toTop.js"> </script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
 </body>
 </html>
