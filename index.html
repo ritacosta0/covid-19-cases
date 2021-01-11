@@ -3,7 +3,10 @@
 <meta charset="utf-8">
 
 <head>
-    <link rel="stylesheet" href="style.css"> </link>
+    <link rel="stylesheet" href="dots-viz/style.css"> </link>
+    <script type="module" src="dots-viz/dots.js"> </script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@500&display=swap"></link>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,14 +43,10 @@
 <button onclick="topFunction()" id="myBtn" ><i class="arrow up"></i></button>
 <!-- <figure class='stack'></figure> -->
 <div id="_progress"></div>
-<div class="dots step" data-step="218,165,32">
+<div class="dots step">
     <p class="progress">0</p>
 </div>
+<script src="dots-viz/toTop.js"> </script>
 
-<script type="module" src="dots.js"> </script>
-<script type="module" src="stackedBar.js"> </script>
-<script src="toTop.js"> </script>
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
 </body>
 </html>
