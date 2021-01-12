@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:wght@500&display=swap"></link>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lozad"></script>
 </head>
 
 <body>
 <h1>Um retrato da covid-19 em Portugal</h1>
     <p class="intro"> Desde o início da pandemia já se registaram 
-        <span class="total-cases"> 0</span> casos de covid-19 em Portugal. 
-        <br> Esta visualização tem como objectivo ilustrar o número de pessoas afectadas pela doença. 
+        <span class="total-cases"> 0</span> casos de covid-19. 
+        <br> Esta visualização tem como objectivo ilustrar a dimensão da doença em Portugal.
     </p>
     <p class="intro"> Um 
         <span class="point point-in-paragraph gray"></span> 
@@ -28,25 +28,29 @@
         <span class="point point-in-paragraph red"></span> 
         no final da página correspondem aos números reportados nas últimas 24 horas.
     </p>
-    <p class="intro">Dados da Direcção-Geral da Saúde, diponibilizados no repositório da 
+    <p class="intro extra">Dados da Direcção-Geral da Saúde, diponibilizados no repositório da 
         <a target="_blank" href="https://github.com/dssg-pt/covid19pt-data">Data Science for Social Good Portugal</a>
     </p>
 <select id="selectButton"></select>
-<p class="warning">Nas selecções em que o número de casos é muito elevado, <br> a página demora mais tempo a carregar.</p>
+<!-- <p class="warning">Nas selecções em que o número de casos é muito elevado, <br> a página demora mais tempo a carregar.</p> -->
 <p class="note">Registaram-se 
     <span class="up-or-down point-in-paragraph">mais</span> 
     <span class="diff-from-last point-in-paragraph">0</span> 
     <span class = "selected-first point-in-paragraph">óbitos</span> 
     nas últimas 24 horas.
 </p>
-
+<p class="warning scroll">SCROLL</p>
+<i class="arrow down"></i>
 <button onclick="topFunction()" id="myBtn" ><i class="arrow up"></i></button>
 <!-- <figure class='stack'></figure> -->
 <div id="_progress"></div>
+<div id="loader" class="center"></div> 
 <div class="dots step">
     <p class="progress">0</p>
 </div>
 <script src="dots-viz/toTop.js"> </script>
+<script src="dots-viz/loader.js"> </script>
+
 
 </body>
 </html>

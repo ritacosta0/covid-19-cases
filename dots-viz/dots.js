@@ -1,7 +1,8 @@
+const dots = d3.select(".dots");
+
 d3.csv(
   "https://raw.githubusercontent.com/dssg-pt/covid19pt-data/master/data.csv",
   function (data) {
-    const dots = d3.select(".dots");
 
     data.forEach(function (d) {
       d.óbitos = +d.obitos;
@@ -133,6 +134,11 @@ d3.csv(
       const maxSelectedVar = d3.max(filteredArray);
       const maxInFilteredArray = d3.range(maxSelectedVar);
 
+      // const halfArray = Math.ceil(maxSelectedVar.length / 2);    
+
+      // const firstHalf = maxInFilteredArray.splice(0, halfArray)
+      // const secondHalf = maxInFilteredArray.splice(-halfArray)
+
       dots.selectAll(".point").remove();
 
       dots
@@ -162,7 +168,7 @@ d3.csv(
           displayValueOnScroll = scrollPercent * maxSelectedVar;
         element = d3.select(".progress");
         element.text(d3.format(".0f")(displayValueOnScroll));
-      });
+      });    
 
       if (
         document.body["scrollHeight"] - document.documentElement.clientHeight <
@@ -174,10 +180,10 @@ d3.csv(
       element.text(d3.format(".0f")(displayValueOnScroll));
 
   }
+  d3.select("#selectButton").on("change", function (d) {
+    var selectedOption = d3.select(this).property("value");
+    update(selectedOption);
+  });
 
-    d3.select("#selectButton").on("change", function (d) {
-      var selectedOption = d3.select(this).property("value");
-      update(selectedOption);
-    });
   }
 );
