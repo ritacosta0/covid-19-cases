@@ -180,7 +180,7 @@ d3.csv(
       }
       const selectedFirst = d3.select(".selected-first");
       if (selectedOption.includes("obitos_")) selectedFirst.text("óbitos");
-      if (selectedOption.includes("confirmados_")) selectedFirst.text("casos");
+      if (selectedOption.includes("confirmados")) selectedFirst.text("casos");
       else if (!selectedOption.includes("_"))
         selectedFirst.text(selectedOption);
 

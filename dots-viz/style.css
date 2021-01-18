@@ -5,6 +5,7 @@ body {
 
 h1 {
   margin-bottom: 50px;
+  font-size: 3em;
 }
 
 canvas {
@@ -27,17 +28,17 @@ canvas {
 
 .note {
   display: block;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 300;
 }
 
 .diff-from-last {
   background-color: #90e0ef;
-  font-size: 16px;
+  font-size: 1.2em;
 }
 
 .total-cases {
-  font-size: 18px;
+  font-size: 1.2em;
 }
 
 .point-in-paragraph {
@@ -54,6 +55,11 @@ canvas {
 
 .scroll-sign {
   visibility: visible;
+}
+
+.point{
+  width: 6px;
+  height: 6px;
 }
 
 .progress { 
@@ -82,7 +88,7 @@ canvas {
   cursor: pointer; 
   padding: 15px; 
   border-radius: 1px; 
-  font-size: 18px; 
+  font-size: 1.5em; 
 }
   
 #myBtn:hover {
