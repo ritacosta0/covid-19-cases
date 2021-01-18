@@ -7,6 +7,16 @@ h1 {
   margin-bottom: 50px;
 }
 
+canvas {
+  border:  1px dotted #ccc;
+  height: 100%;
+  margin-top: 10px !important;
+}
+
+.container {
+  width: 100%; 
+  text-align:center;
+}
 .intro {
   font-weight: 700;
 }
@@ -30,33 +40,11 @@ h1 {
   font-size: 18px;
 }
 
-.warning {
-  display: block;
-  font-size: 10px;
-  font-style: italic;
-  color: grey;
-  padding-bottom: 20px;
-}
-
-.dots {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-top: 5px !important;
-}
-  
-.point {
-  width: 6px;
-  height: 6px;
-  margin: 1px;
-}
-
 .point-in-paragraph {
   display: inline-block;
 }
   
-.red {
+.blue {
   background-color: #90e0ef;
 }
 
@@ -64,85 +52,41 @@ h1 {
   background-color: #d3d3d3;
 }
 
-.step {
-  display: flex;
-  width: 75%;
-  margin: 2rem auto 4rem auto;
+.scroll-sign {
+  visibility: visible;
 }
 
 .progress { 
   text-align: center;
   top: 60%;
-  width: 75%;
+  width: 99%;
   position: fixed;
   margin: 0.5rem auto;
   font-size: 3rem;
   font-family: 'Roboto Slab', serif;
 }
 
-#selectButton {
+.selectButton {
   display: block;
   margin: auto
 }
 
-    /* #_progress {
-      --scroll: 0%;
-      background: linear-gradient(to right,rgb(0, 143, 105) var(--scroll),transparent 0);
-      position: fixed;
-      width: 100%;
-      height: 5px;
-      top:0px;
-      z-index: 100;
-  }
-
-  .stack{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin: 0 auto;
-    width: 30%;
-  }
-  
-  .group{
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 0.5rem 0;
-    width: 45px;
-    align-items: center;
-  }
-  
-  .block{
-    width: 15px;
-    order: 1;
-    margin-bottom: 0rem;
-  }
-  
-  .label{
-    order: 0;
-    width: 50px;
-    text-align: center;
-  }
-  
-  .count{
-    order: 2;
-  } */
-
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 50%; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 1px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  display: none;
+  position: fixed; 
+  bottom: 50%; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none;
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 1px; 
+  font-size: 18px; 
 }
   
 #myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+  background-color: #555; 
 }
 
 .arrow {
@@ -163,21 +107,6 @@ h1 {
   animation: blink 1s infinite;
 }
 
-#loader { 
-  border: 12px solid #f3f3f3; 
-  border-radius: 50%; 
-  border-top: 12px solid #444444; 
-  width: 70px; 
-  height: 70px; 
-  animation: spin 1s linear infinite; 
-} 
-
-@keyframes spin { 
-  100% { 
-      transform: rotate(360deg); 
-  } 
-} 
-
 .center { 
   position: absolute; 
   top: 0; 
@@ -192,6 +121,11 @@ h1 {
   margin-bottom: 0;
   padding-bottom: 0; 
   margin-top: 40px;
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  color: grey;
+  padding-bottom: 0px;
 }
 
 @keyframes blink {
