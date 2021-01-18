@@ -1,6 +1,6 @@
 # Covid-19 em Portugal
 
-Esta visualização tem como objectivo ilustrar a dimensão da doença em Portugal. Mostrando um quadrado por pessoa infectada, recuperada ou óbito.
+Esta visualização tem como objectivo ilustrar a dimensão da covid-19 em Portugal. Mostrando um quadrado por pessoa infectada, recuperada ou óbito.
 
 Dados da Direcção-Geral da Saúde, diponibilizados no repositório da Data Science for Social Good Portugal. 
 
