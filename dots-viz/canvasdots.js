@@ -31,8 +31,34 @@ d3.select(".selectButton")
     return d;
   });
 
-const width = 1055;
-let height = 600;
+// create variables to adapt to screen width
+
+let squareSize = 0;
+let squaresInRow = 0;
+let heightMultiplier = 0;
+let groupSpacing = 0;
+let heightMultiplierSelectedVar = 0;
+let width_ = 0;
+
+if (window.innerWidth < 500) {
+  squareSize = 3;
+  squaresInRow = 77;
+  heightMultiplier = 4.6;
+  groupSpacing = .95;
+  heightMultiplierSelectedVar = 4.45;
+  width_ = window.innerWidth - 100;
+
+} else {
+  squareSize = 6;
+  squaresInRow = 130;
+  heightMultiplier = 8;
+  groupSpacing = 0.5;
+  heightMultiplierSelectedVar = 8;
+  width_ = 1055;
+}
+
+const width = width_;
+let height = 0;
 
 const canvas = d3
   .select("#container")
@@ -78,6 +104,13 @@ d3.csv(
     const maxObitos = d3.max(obitos);
     const arrayMaxObitos = d3.range(maxObitos);
 
+    if (maxObitos < 50) height = 100;
+    else
+      height =
+        heightMultiplier * Math.ceil(maxObitos / squaresInRow) +
+        0.5 * (maxObitos / squaresInRow);
+    canvas.attr("height", height);
+
     let displayValueOnScroll = 0;
     let element = "";
     document.addEventListener("scroll", function () {
@@ -101,12 +134,14 @@ d3.csv(
 
       element = d3.select(".progress");
       element.text(d3.format(".0f")(displayValueOnScroll));
+      if (displayValueOnScroll > 3) element.style("visibility", "visible");
+      if (displayValueOnScroll < 3 && window.innerWidth < 500)
+        element.style("visibility", "hidden");
     });
 
     const customBase = document.createElement("custom");
     const custom = d3.select(customBase);
 
-    const groupSpacing = 0.5;
     const cellSize = Math.floor((width * groupSpacing) / 60);
 
     databind(arrayMaxObitos);
@@ -122,11 +157,11 @@ d3.csv(
         .attr("class", "rect")
         .attr("x", function (d, i) {
           const x0 = 0;
-          const x1 = Math.floor(i % 130);
+          const x1 = Math.floor(i % squaresInRow);
           return groupSpacing * x0 + cellSize * (x1 + x0 * 10);
         })
         .attr("y", function (d, i) {
-          const y0 = Math.floor(i / 130);
+          const y0 = Math.floor(i / squaresInRow);
           const y1 = Math.floor((i % 100) / 100);
           return groupSpacing * y0 + cellSize * (y1 + y0);
         })
@@ -136,8 +171,8 @@ d3.csv(
       join
         .merge(enterSel)
         // .transition()
-        .attr("width", 6)
-        .attr("height", 6)
+        .attr("width", squareSize)
+        .attr("height", squareSize)
         .attr("fillStyle", (d) =>
           d >= casesBeforeLast ? "#90e0ef" : "#d3d3d3"
         );
@@ -191,10 +226,12 @@ d3.csv(
       const diffFrom = d3.select(".diff-from-last");
       diffFrom.text(diffDay);
 
-      if (maxSelectedVar < 130) height = 100;
+      if (maxSelectedVar < 50) height = 100;
       else
         height =
-          8 * Math.ceil(maxSelectedVar / 130) + 0.5 * (maxSelectedVar / 130);
+          heightMultiplierSelectedVar *
+            Math.ceil(maxSelectedVar / squaresInRow) +
+          0.5 * (maxSelectedVar / squaresInRow);
 
       canvas.attr("height", height);
 
@@ -223,6 +260,9 @@ d3.csv(
         displayValueOnScroll = maxSelectedVar;
       element = d3.select(".progress");
       element.text(d3.format(".0f")(displayValueOnScroll));
+      if (displayValueOnScroll > 3) element.style("visibility", "visible");
+      if (displayValueOnScroll < 3 && window.innerWidth < 500)
+        element.style("visibility", "hidden");
 
       if (
         document.body["scrollHeight"] - document.documentElement.clientHeight <
