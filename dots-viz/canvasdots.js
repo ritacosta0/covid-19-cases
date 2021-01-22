@@ -255,7 +255,7 @@ d3.csv(
 
       if (
         document.body["scrollHeight"] - document.documentElement.clientHeight <
-        0
+        190
       )
         displayValueOnScroll = maxSelectedVar;
       element = d3.select(".progress");
@@ -266,7 +266,7 @@ d3.csv(
 
       if (
         document.body["scrollHeight"] - document.documentElement.clientHeight <
-        0
+        190
       )
         d3.select(".scroll-sign").style("visibility", "hidden");
       else d3.select(".scroll-sign").style("visibility", "visible");
