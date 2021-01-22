@@ -247,7 +247,7 @@ d3.csv(
         let scrollPercent = scrollTop / scrollBottom;
 
         if (scrollPercent > 0.95) displayValueOnScroll = maxSelectedVar;
-        if (scrollPercent < 0.95)
+        if (scrollPercent < 0.95 - 0.1)
           displayValueOnScroll = scrollPercent * maxSelectedVar;
         element = d3.select(".progress");
         element.text(d3.format(".0f")(displayValueOnScroll));
@@ -260,8 +260,8 @@ d3.csv(
         displayValueOnScroll = maxSelectedVar;
       element = d3.select(".progress");
       element.text(d3.format(".0f")(displayValueOnScroll));
-      if (displayValueOnScroll > 3) element.style("visibility", "visible");
-      if (displayValueOnScroll < 3 && window.innerWidth < 500)
+      if (displayValueOnScroll > 1) element.style("visibility", "visible");
+      if (displayValueOnScroll < 1 && window.innerWidth < 500)
         element.style("visibility", "hidden");
 
       if (
